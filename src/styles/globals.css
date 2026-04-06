@@ -1,0 +1,86 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Nunito:wght@400;600;700;900&display=swap');
+@import "tailwindcss";
+@import "./responsive.css";
+
+/* ── CSS Reset ─────────────────────────────────────── */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* ── CSS Variables (default: buddy) ───────────────── */
+:root {
+  --bg:          #FFFFFF;
+  --accent:      #00E5FF;
+  --text:        #0A0A0A;
+  --surface:     #F5F5F5;
+  --accent-glow: rgba(0, 229, 255, 0.4);
+}
+
+/* ── Base ───────────────────────────────────────────── */
+html {
+  scroll-behavior: smooth;
+  font-family: 'Nunito', system-ui, sans-serif;
+  background-color: var(--bg);
+  color: var(--text);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+::selection {
+  background: var(--accent);
+  color: var(--bg);
+}
+
+body {
+  min-height: 100vh;
+  overflow-x: hidden;
+  background-color: var(--bg);
+  color: var(--text);
+}
+
+/* ── Utility classes that consume CSS vars ──────────── */
+.bg-theme        { background-color: var(--bg); }
+.surface-theme   { background-color: var(--surface); }
+.accent-theme    { color: var(--accent); }
+.border-accent   { border-color: var(--accent); }
+.text-theme      { color: var(--text); }
+.glow-accent     { box-shadow: 0 0 24px var(--accent-glow); }
+.ring-accent     { outline: 2px solid var(--accent); }
+
+/* ── Custom Animations ──────────────────────────────── */
+@keyframes navBtnShimmer {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+@keyframes multicolorShimmer {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+.multicolor-glow-bg {
+  background: linear-gradient(110deg, #00F0FF, #FF007F, #FFD700, #00F0FF, #FF007F);
+  background-size: 300% 300%;
+  animation: multicolorShimmer 4s ease-in-out infinite;
+}
+
+@keyframes bootPulse {
+  0% { transform: scale(1); opacity: 0.8; }
+  50% { transform: scale(1.1); opacity: 1; }
+  100% { transform: scale(1); opacity: 0.8; }
+}
+
+@keyframes loadBar {
+  0% { width: 0%; }
+  40% { width: 60%; }
+  100% { width: 100%; }
+}
+
+@keyframes scanSweep {
+  0% { top: 0; }
+  100% { top: 100%; }
+}

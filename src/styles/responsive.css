@@ -1,0 +1,154 @@
+/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+   RESPONSIVE.CSS — Global app-wide responsive framework
+   Mobile-first breakpoints: 480 → 768 → 1024 → 1440
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
+
+/* ── Base: Mobile (<480px) ────────────────────────────────── */
+
+/* Hero responsive */
+#hero { min-height: 100vh; min-height: 100dvh; }
+
+/* Brush Internals responsive */
+#brush-internals .sticky { padding: 0 8px; }
+
+/* Navbar mobile padding */
+nav { padding-left: 12px !important; padding-right: 12px !important; }
+
+/* Product page mobile */
+.product-page-grid {
+  grid-template-columns: 1fr !important;
+  gap: 24px !important;
+  padding-left: 12px !important;
+  padding-right: 12px !important;
+}
+
+/* Ensure images never overflow */
+img { max-width: 100%; height: auto; }
+
+/* Prevent horizontal overflow */
+html, body { overflow-x: hidden; }
+
+/* Better touch targets on mobile */
+button, a, input, select, textarea {
+  min-height: 44px;
+  font-size: max(16px, 1em); /* Prevent iOS zoom on focus */
+}
+
+/* Smooth scrolling for all */
+* { -webkit-overflow-scrolling: touch; }
+
+/* Hide scrollbars but allow scroll */
+.scrollbar-hide::-webkit-scrollbar { display: none; }
+.scrollbar-hide { -ms-overflow-style: none; scrollbar-width: none; }
+
+/* ── Small phones (≥480px) ─────────────────────────────────── */
+@media (min-width: 480px) {
+  nav { padding-left: 16px !important; padding-right: 16px !important; }
+}
+
+/* ── Tablets (≥768px) ──────────────────────────────────────── */
+@media (min-width: 768px) {
+  nav { padding-left: 24px !important; padding-right: 24px !important; }
+
+  /* BrushShowcase: side-by-side layout */
+  .md\:flex-row { flex-direction: row !important; }
+
+  /* Product page grid */
+  .product-page-grid {
+    grid-template-columns: 1fr 1fr !important;
+    gap: 48px !important;
+    padding-left: 24px !important;
+    padding-right: 24px !important;
+  }
+}
+
+/* ── Desktop (≥1024px) ─────────────────────────────────────── */
+@media (min-width: 1024px) {
+  nav { padding-left: 40px !important; padding-right: 40px !important; }
+
+  /* Product page grid */
+  .product-page-grid {
+    gap: 64px !important;
+    padding-left: 32px !important;
+    padding-right: 32px !important;
+  }
+}
+
+/* ── Large desktop (≥1440px) ───────────────────────────────── */
+@media (min-width: 1440px) {
+  /* Max content width for ultra-wide */
+  .max-content { max-width: 1400px; margin: 0 auto; }
+}
+
+/* ── Performance: Reduce motion for users who prefer it ──── */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* ── Fast global transitions ──────────────────────────────── */
+*, *::before, *::after {
+  transition-timing-function: cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* ── Mobile-specific: BrushInternals SVG scaling ─────────── */
+@media (max-width: 640px) {
+  #brush-internals .internals-stage-container {
+    width: 480px !important;
+    transform: scale(0.7) translateX(-20px);
+    transform-origin: top center;
+  }
+
+  /* Keep labels visible inside the scaled container without overlapping lines */
+  #brush-internals .brush-label {
+    left: calc(50% + 72px) !important;
+    width: 165px !important;
+    max-width: 165px !important;
+    white-space: normal !important;
+  }
+
+  /* Prevent overlapping specific central labels on mobile purely via CSS */
+  #brush-internals .label-2 { margin-top: -6px !important; }
+  #brush-internals .line-2 { transform: translateY(-6px); }
+
+  #brush-internals .label-3 { margin-top: -10px !important; }
+  #brush-internals .line-3 { transform: translateY(-10px); }
+  
+  #brush-internals .label-4 { margin-top: 14px !important; }
+  #brush-internals .line-4 { transform: translateY(14px); }
+
+  /* Shrink label text slightly */
+  #brush-internals .brush-label > div > div:last-child > div:first-child {
+    font-size: 13px !important;
+    letter-spacing: 0.01em !important;
+    line-height: 1.1 !important;
+    margin-bottom: 2px !important;
+  }
+  #brush-internals .brush-label > div > div:last-child > div:last-child {
+    font-size: 11px !important;
+    line-height: 1.2 !important;
+  }
+
+  /* Hero text sizing */
+  .denty-letter {
+    font-size: clamp(60px, 13vw, 100px) !important;
+  }
+}
+
+/* ── Tablet-specific adjustments ─────────────────────────── */
+@media (min-width: 641px) and (max-width: 1023px) {
+  #brush-internals .internals-stage-container {
+    transform: scale(0.92);
+    transform-origin: top center;
+  }
+}
+
+/* ── Print styles ────────────────────────────────────────── */
+@media print {
+  nav, footer, .cursor-glow, canvas { display: none !important; }
+  * { background: white !important; color: black !important; box-shadow: none !important; }
+}
