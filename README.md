@@ -1,16 +1,76 @@
-# React + Vite
+# 🧠 React Application with Supabase and Vite
+This project is a React application built with Supabase and Vite, featuring a robust authentication system, payment processing, and a customizable theme. It demonstrates a scalable and maintainable architecture, making it an ideal starting point for complex web applications.
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## 🚀 Features
+* Authentication system with Supabase, including login, signup, and password recovery
+* Payment processing with a modal window and step indicator
+* Customizable theme with multiple color schemes and transitions
+* Protected routes with authentication checks
+* Scroll-triggered animations and events
+* Cursor tracking and glow effect
+* Real-time presence tracking with Supabase
 
-Currently, two official plugins are available:
+## 🛠️ Tech Stack
+* Frontend: React, Vite, Tailwind CSS
+* Backend: Supabase
+* Database: Supabase PostgreSQL
+* Authentication: Supabase Auth
+* Payment Gateway: Integrated with Supabase
+* Libraries: React Router, GSAP, Three.js
+* Build Tool: Vite
+* Package Manager: npm
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## 📦 Installation
+To get started with the project, follow these steps:
+1. Clone the repository: `git clone https://github.com/your-repo/react-supabase-vite.git`
+2. Install dependencies: `npm install`
+3. Create a Supabase instance and set up the environment variables
+4. Start the development server: `npm run dev`
 
-## React Compiler
+## 💻 Usage
+1. Start the development server: `npm run dev`
+2. Open the application in your browser: `http://localhost:3000`
+3. Explore the features and functionality of the application
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## 📂 Project Structure
+```markdown
+.
+├── public
+├── src
+│   ├── components
+│   │   ├── auth
+│   │   ├── payment
+│   │   ├── ProtectedRoute.jsx
+│   │   └── ...
+│   ├── context
+│   │   ├── AuthContext.jsx
+│   │   └── ...
+│   ├── hooks
+│   │   ├── useCursor.js
+│   │   ├── useScrollTrigger.js
+│   │   ├── useTheme.js
+│   │   └── ...
+│   ├── lib
+│   │   ├── supabase.js
+│   │   └── ...
+│   ├── main.jsx
+│   ├── App.jsx
+│   └── ...
+├── vite.config.js
+├── package.json
+└── ...
+```
 
-## Expanding the ESLint configuration
+## 📸 Screenshots
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## 🤝 Contributing
+Contributions are welcome! If you'd like to contribute to the project, please fork the repository and submit a pull request.
+
+## 📝 License
+This project is licensed under the MIT License.
+
+## 📬 Contact
+For questions or concerns, please contact us at [your-email@example.com](mailto:your-email@example.com).
+
+## 💖 Thanks Message
+Thank you for using our application! We hope you find it helpful and enjoyable.
